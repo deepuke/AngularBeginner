@@ -6,12 +6,30 @@
 		</title>
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
 	</head>
-	<body data-ng-app="prj01.app">
-		{{1+1}}
+	<body data-ng-app="app">
+		<div class="container" data-ng-controller="myCtrl">
+			<div class="page-header">
+			<h1>My Learning site <small>AngualrJS</small></h1>
+			</div>
+
+			<div class="row" data-ng-repeat="item in arr">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						 <h3 class="panel-title">{{item.name}}</h3>
+					</div>
+					<div class="panel-body">
+						<ul>
+							<li>{{item.age}}</li>
+							<li>{{item.place}}</li>
+						</ul>
+					</div>
+					<div class="panel-footer">Panel footer</div>
+				</div>				
+			</div> 
+		</div>
 	</body>
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 
 	<script type="text/javascript" src="app/app.js"></script>
-	<script type="text/javascript" src="app/components/welcome/prj01.components.welcome.module.js"></script>
 </html>
