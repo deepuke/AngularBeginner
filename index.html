@@ -1,33 +1,66 @@
 <!doctype html>
 <html>
 	<head>
-		<title>
-			Project - 01
-		</title>
+		<title> Project - 01 </title>
 		<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	</head>
 	<body data-ng-app="app">
 		<div class="container" data-ng-controller="myCtrl">
 			<div class="page-header">
-			<h1>My Learning site <small>AngualrJS</small></h1>
+				<h1>My Learning site <small>AngualrJS</small></h1>
 			</div>
 
 			<div class="row" data-ng-repeat="item in arr">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						 <h3 class="panel-title">{{item.name}}</h3>
+						<h3 class="panel-title">{{item.name}}</h3>
 					</div>
 					<div class="panel-body">
 						<ul>
-							<li>{{item.age}}</li>
-							<li>{{item.place}}</li>
+							<li>
+								{{item.age}}
+							</li>
+							<li>
+								{{item.place}}
+							</li>
+							<li>
+								Input accept &lt;= 99.99
+								<input class="num" type="number" ng-model="number" step="0.01" />
+							</li>
+							<script>
+								$('.num').on('keyup', function() {
+									console.log($(this).val());
+
+									var self = $(this);
+									var matches = self.val().match(/^[-+]?([1-9]\d?(\.\d{1,2})?|0\.(\d?[1-9]|[1-9]\d))$/);
+
+									console.log(matches);
+									if (matches) {
+										self.val(matches[0]);
+									} else {
+
+										var len = String(self.val()).length;
+										if (len > 1) {
+											self.val(self.val().slice(0, len - 1));
+										}
+
+									}
+									//console.log($(this).val().replace(/[+-]?([1-9]\d?(\.\d\d?)?|0\.[1-9]\d?||0\.0[1-9])/));
+									//$(this).val($(this).val().replace(/^(\d{1,2}\.\d{1,2}|\d{1,2})$/, "\\$&"));
+								});
+							</script>
 						</ul>
 					</div>
-					<div class="panel-footer">Panel footer</div>
-				</div>				
-			</div> 
+					<div class="panel-footer">
+						Panel footer
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
+
 	<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 	<script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
 

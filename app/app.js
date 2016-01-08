@@ -8,4 +8,11 @@ angular.module("app", []).controller("myCtrl", function($scope){
 		age : 61,
 		place : "kollam"
 	}];
+	
+	$scope.number;
+	
+	$scope.test = function(){
+		
+		
+	};
 });
