@@ -1,18 +1,16 @@
-angular.module("app", []).controller("myCtrl", function($scope){
-	$scope.arr = [{
-		name : "Deepu",
-		age : 31,
-		place : "USA"
-	},{
-		name : "Anisha",
-		age : 61,
-		place : "kollam"
-	}];
-	
-	$scope.number;
-	
-	$scope.test = function(){
-		
-		
+var app = angular.module("app", ['ngAnimate', 'ui.bootstrap']);
+app.controller("myCtrl", function($scope, $log) {
+	$scope.status = {
+		isopen : false
+	};
+
+	$scope.toggled = function(open) {
+		$log.log('Dropdown is now: ', open);
+	};
+
+	$scope.toggleDropdown = function($event) {
+		$event.preventDefault();
+		$event.stopPropagation();
+		$scope.status.isopen = !$scope.status.isopen;
 	};
 });
