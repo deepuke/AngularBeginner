@@ -12,5 +12,10 @@ app.controller("myCtrl", function($scope, $log) {
 		$event.preventDefault();
 		$event.stopPropagation();
 		$scope.status.isopen = !$scope.status.isopen;
+		
+		if($scope.status.isopen){
+			//Optional - make the ajax call here .
+			// or you can call the method for ajax request.
+		}
 	};
 });
